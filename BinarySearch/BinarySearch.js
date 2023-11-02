@@ -21,7 +21,7 @@ const target = 78;
 
 console.log(BinarySearch(array, target));
 
-// Sorted - Ascending Array
+// Sorted - Descending Array
 const BinarySearch2 = (arr, target) => {
   let start = 0;
   let end = arr.length - 1;
