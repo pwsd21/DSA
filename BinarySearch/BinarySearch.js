@@ -2,9 +2,8 @@
 const BinarySearch = (arr, target) => {
   let start = 0;
   let end = arr.length - 1;
-  let mid;
   while (start <= end) {
-    mid = Math.floor(start + (end - start) / 2);
+    const mid = Math.floor(start + (end - start) / 2);
     if (target < arr[mid]) {
       end = mid - 1;
     } else if (target > arr[mid]) {
@@ -25,9 +24,8 @@ console.log(BinarySearch(array, target));
 const BinarySearch2 = (arr, target) => {
   let start = 0;
   let end = arr.length - 1;
-  let mid;
   while (start <= end) {
-    mid = Math.floor(start + (end - start) / 2);
+    const mid = Math.floor(start + (end - start) / 2);
     if (target > arr[mid]) {
       end = mid - 1;
     } else if (target < arr[mid]) {
@@ -49,7 +47,7 @@ const SearchBinary = (arr, target) => {
   let isAsc = arr[start] < arr[end]; // Check if the array is in ascending order
 
   while (start <= end) {
-    let mid = start + Math.floor((end - start) / 2);
+    const mid = start + Math.floor((end - start) / 2);
 
     if (target === arr[mid]) {
       return mid;
