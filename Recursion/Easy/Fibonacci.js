@@ -19,8 +19,8 @@ const Fibonacci = (n) => {
 
 // to print series
 for (let i = 0; i <= 10; i++) {
-  console.log(Fibonacci(i));
+  console.log(Fibo(i));
 }
 
 // to print nth fibonacci number
-console.log(Fibonacci(10));
+console.log(Fibo(10), "Fobonaccii");

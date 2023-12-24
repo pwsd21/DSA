@@ -59,7 +59,7 @@ const findAllIndex = (arr, target, index, outputArray) => {
 
 // console.log(findAllIndex([2, 4, 6, 78, 5, 5, 44], 5, 0, []));
 
-// Without paaing arrlist as an argument - declaring list inside body - NOT PREFERRED
+// Without passing arrlist as an argument - declaring list inside body - NOT PREFERRED
 
 const findAll = (arr, target, index) => {
   let list = [];

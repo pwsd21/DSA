@@ -1,5 +1,5 @@
 const numberOfSteps = (n) => {
-  return helper(n, (steps = 0));
+  return helper(n, 0);
 };
 
 const helper = (n, steps) => {
@@ -12,4 +12,4 @@ const helper = (n, steps) => {
   return helper(n - 1, steps + 1);
 };
 
-console.log(numberOfSteps(8));
+console.log(numberOfSteps(14));

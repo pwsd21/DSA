@@ -5,7 +5,7 @@ const Reverse = (n) => {
   return `${n % 10}` + Reverse(Math.floor(n / 10));
 };
 
-// console.log(Reverse(1409));
+console.log(Reverse(1409));
 
 // Leetcode reverse Integer
 
@@ -16,4 +16,4 @@ const ReverseInteger = (n) => {
   return `${n % 10}` + ReverseInteger(Math.floor(n / 10));
 };
 
-console.log(ReverseInteger(-1234));
+console.log(ReverseInteger(1234));
