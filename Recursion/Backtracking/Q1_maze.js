@@ -1,3 +1,4 @@
+// count no of steps
 const mazeCount = (r, c) => {
   if (r == 1 || c == 1) {
     return 1;
