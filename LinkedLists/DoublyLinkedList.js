@@ -1,44 +1,45 @@
-// current <-> temp
-
 class Node {
   constructor(data) {
     this.data = data;
     this.next = null;
+    this.prev = null; // New property for doubly linked list
   }
 }
 
-class LinkedList {
+class DoublyLinkedList {
   constructor() {
     this.head = null;
   }
 
-  // Add a new node with data to the beginning of the list
+  // Add a new node with data to the beginning of the doubly linked list
   addFirst(data) {
     const newNode = new Node(data);
     newNode.next = this.head;
+    if (this.head) {
+      this.head.prev = newNode;
+    }
     this.head = newNode;
   }
 
-  // Add a new node with data to the end of the list
+  // Add a new node with data to the end of the doubly linked list
   addLast(data) {
     const newNode = new Node(data);
 
-    // If the list is empty, make the new node the head
     if (!this.head) {
       this.head = newNode;
       return;
     }
 
-    // Traverse to the end of the list and add the new node
     let current = this.head;
     while (current.next) {
       current = current.next;
     }
 
     current.next = newNode;
+    newNode.prev = current;
   }
 
-  // Return the number of nodes in the list
+  // Return the number of nodes in the doubly linked list
   size() {
     let count = 0;
     let current = this.head;
@@ -49,68 +50,81 @@ class LinkedList {
     return count;
   }
 
-  // Add a new node with data at a specified inde
+  // Add a new node with data at a specified index
   addAt(index, data) {
     if (index < 0 || index > this.size()) {
-      console.log("Invalid Index");
+      console.error("Invalid Index");
       return;
     }
 
     const newNode = new Node(data);
-    // If index is 0, add the new node at the beginning
-    if (index == 0) {
-      this.addFirst(data); // addFirst(data)
+    if (index === 0) {
+      newNode.next = this.head;
+      if (this.head) {
+        this.head.prev = newNode;
+      }
+      this.head = newNode;
       return;
     }
 
-    // Traverse to the node at the (index - 1) position and insert the new node
     let current = this.head;
     for (let i = 0; i < index - 1; i++) {
       current = current.next;
     }
 
     newNode.next = current.next;
+    newNode.prev = current;
+    if (current.next) {
+      current.next.prev = newNode;
+    }
     current.next = newNode;
   }
 
-  // Remove the first node in the list
+  // Remove the first node in the doubly linked list
   removeTop() {
     if (!this.head) {
       return;
     }
 
     this.head = this.head.next;
+    if (this.head) {
+      this.head.prev = null;
+    }
   }
 
-  // Remove the last node in the list
+  // Remove the last node in the doubly linked list
   removeLast() {
     if (!this.head) {
       return;
     }
 
     let current = this.head;
-    while (current.next.next) {
+    while (current.next) {
       current = current.next;
     }
 
-    // Set the next of the second last node to null
-    current.next = null;
+    if (current.prev) {
+      current.prev.next = null;
+    } else {
+      this.head = null;
+    }
   }
 
   // Remove the node at a specified index
   removeAt(index) {
-    if (index < 0 || index > this.size()) {
-      console.log("Invalid Index");
+    if (index < 0 || index >= this.size()) {
+      console.error("Invalid Index");
       return;
     }
 
-    // If index is 0, remove the first node
-    if (index == 0) {
+    if (index === 0) {
       this.head = this.head.next;
+      if (this.head) {
+        this.head.prev = null;
+      }
       return;
     }
 
-    // Traverse to the node at the (index - 1) position and remove the next node
     let current = this.head;
     for (let i = 0; i < index - 1; i++) {
       current = current.next;
@@ -118,11 +132,14 @@ class LinkedList {
 
     if (current.next) {
       current.next = current.next.next;
+      if (current.next) {
+        current.next.prev = current;
+      }
     }
   }
 
-  // Print the data of all nodes in the list
-  printList() {
+  // Print the data of all nodes in the doubly linked list
+  print() {
     let current = this.head;
     while (current) {
       console.log(current.data);
@@ -131,15 +148,20 @@ class LinkedList {
   }
 }
 
-const myLinkedList = new LinkedList();
+// Example Usage
+const linkedlist = new DoublyLinkedList();
 
-myLinkedList.addFirst(5);
-myLinkedList.addFirst(6);
-myLinkedList.addFirst(8);
-myLinkedList.addFirst(7);
-myLinkedList.addFirst(9);
-// myLinkedList.removeAt(1);
-myLinkedList.addAt(2, 10);
+linkedlist.addFirst(5);
+linkedlist.addFirst(3);
+linkedlist.addFirst(8);
+linkedlist.addLast(6);
 
-myLinkedList.printList();
-// console.log(myLinkedList);
+linkedlist.removeTop();
+
+linkedlist.addAt(2, 8);
+
+linkedlist.removeLast();
+linkedlist.removeAt(2);
+
+linkedlist.print();
+console.log("size = " + linkedlist.size());
