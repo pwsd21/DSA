@@ -1,52 +1,30 @@
-const findPivot = (arr) => {
+const search = (nums, target) => {
   let start = 0;
-  let end = arr.length - 1;
+  let end = nums.length - 1;
+
   while (start <= end) {
     let mid = start + Math.floor((end - start) / 2);
 
-    if (mid < end && arr[mid] > arr[mid + 1]) {
+    // if found
+    if (target === nums[mid]) {
       return mid;
     }
-    if (mid > start && arr[mid] < arr[mid - 1]) {
-      return mid - 1;
-    }
-    if (arr[mid] <= arr[start]) {
-      end = mid - 1;
+
+    // existing values comparison
+    if (nums[mid] <= nums[end]) {
+      // target comparison
+      if (target > nums[mid] && target <= nums[end]) {
+        start = mid + 1;
+      } else {
+        end = mid - 1;
+      }
     } else {
-      start = mid + 1;
+      if (target >= nums[start] && target < nums[mid]) {
+        end = mid - 1;
+      } else {
+        start = mid + 1;
+      }
     }
   }
-  return -1;
 };
-
-const binarySearch = (arr, target, start, end) => {
-  while (start <= end) {
-    let mid = start + Math.floor((end - start) / 2);
-    if (target > arr[mid]) {
-      start = mid + 1;
-    } else if (target < arr[mid]) {
-      end = mid - 1;
-    } else {
-      return mid;
-    }
-  }
-  return -1;
-};
-
-const RotatedSortedArray = (arr, target) => {
-  let pivot = findPivot(arr);
-  if (pivot == -1) {
-    return binarySearch(arr, target, 0, arr.length - 1);
-  }
-  if (arr[pivot] == target) {
-    return pivot;
-  }
-  if (target >= arr[0]) {
-    return binarySearch(arr, target, 0, pivot - 1);
-  }
-  return binarySearch(arr, target, pivot + 1, arr.length - 1);
-};
-
-console.log(RotatedSortedArray([4, 5, 6, 7, 0, 1, 2], 0)); // Should return 1
-
-// With duplicates
+console.log(search([4, 5, 6, 7, 0, 1, 2], 4)); // Should return 4
