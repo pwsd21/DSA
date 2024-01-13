@@ -3,9 +3,9 @@ const mergeSort = (arr) => {
     return arr;
   }
   const mid = Math.floor(arr.length / 2);
-  const leftArr = arr.slice(0, mid);
-  const rightArr = arr.slice(mid);
-  return merge(mergeSort(leftArr), mergeSort(rightArr));
+  const leftArr = mergeSort(arr.slice(0, mid));
+  const rightArr = mergeSort(arr.slice(mid));
+  return merge(leftArr, rightArr);
 };
 
 const merge = (leftArr, rightArr) => {

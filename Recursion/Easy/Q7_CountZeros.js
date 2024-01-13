@@ -15,4 +15,4 @@ const helper = (n, c) => {
   return helper(Math.floor(n / 10), c);
 };
 
-console.log(Count(2020304));
+console.log(Count(20203040));

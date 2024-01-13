@@ -5,9 +5,9 @@ const series = (n) => {
     return;
   }
   console.log(n);
-  series(n - 1); // return series(n-1) - both are same
+  return series(n - 1); // return series(n-1) - both are same
   // series(--n) - similar results
-  console.log(n);
+  // console.log(n);
 };
 
 series(5);
