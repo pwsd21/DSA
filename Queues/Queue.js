@@ -37,15 +37,18 @@ class Queue {
 }
 
 const queue = new Queue();
+console.log(queue);
 console.log(queue.isEmpty());
 queue.enqueue(10);
 queue.enqueue(20);
 queue.enqueue(30);
+console.log(queue);
 console.log(queue.size());
 queue.print();
 
 console.log(queue.dequeue());
 console.log(queue.peek());
+console.log(queue);
 
 // class Queue {
 //   constructor() {

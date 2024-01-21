@@ -65,6 +65,9 @@ class LinkedList {
     this.size++;
   }
 
+  // insert using recursion
+  insertAtIndex() {}
+
   removeFromFront() {
     if (this.isEmpty()) {
       return null;
