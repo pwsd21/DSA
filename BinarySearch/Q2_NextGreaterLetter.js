@@ -9,7 +9,7 @@ const nextGreatestLetter = (letters, target) => {
       start = mid + 1;
     }
   }
-  return letters[start % letters.length];
+  return letters[start % letters.length]; // only main line - rest all same
   // const index = start >= letters.length ? 0 : start;
   // return letters[index];
 };

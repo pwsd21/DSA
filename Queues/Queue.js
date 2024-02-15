@@ -37,7 +37,7 @@ class Queue {
 }
 
 const queue = new Queue();
-console.log(queue);
+console.log(queue, "queeee");
 console.log(queue.isEmpty());
 queue.enqueue(10);
 queue.enqueue(20);

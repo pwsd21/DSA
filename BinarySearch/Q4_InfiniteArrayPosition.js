@@ -4,7 +4,7 @@ const findRange = (arr, target) => {
 
   while (target > arr[end]) {
     let temp = end + 1;
-    end = end + (end - start + 1) * 2;
+    end = end + (end - start + 1) * 2; // only main logic - rest normal binary search
     start = temp;
   }
   return InfiniteSearch(arr, target, start, end);

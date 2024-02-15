@@ -11,6 +11,7 @@ const search = (arr, target) => {
       return mid;
     }
 
+    // for duplicates check
     if (arr[start] == arr[mid] && arr[mid] == arr[end]) {
       start++;
       end--;

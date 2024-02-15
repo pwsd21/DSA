@@ -3,6 +3,7 @@ const PeakMountain = (arr) => {
   let end = arr.length - 1;
 
   while (start < end) {
+    // remember not to keep <= in biotonic array
     let mid = start + Math.floor((end - start) / 2);
     if (arr[mid] > arr[mid + 1]) {
       end = mid;

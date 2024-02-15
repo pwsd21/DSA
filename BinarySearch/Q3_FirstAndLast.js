@@ -2,9 +2,9 @@
 
 const SearchRange = (nums, target) => {
   let ans = [-1, -1];
-  ans[0] = search(nums, target, true);
+  ans[0] = search(nums, target, true); // first
   if (ans[0] != -1) {
-    ans[1] = search(nums, target, false);
+    ans[1] = search(nums, target, false); // last
   }
   return ans;
 };
@@ -30,4 +30,4 @@ const search = (nums, target, findStartIndex) => {
   return ans;
 };
 
-console.log(SearchRange([2, 4, 6, 7, 7, 7, 7, 7, 7, 7, 8, 8, 9, 34], 7));
+console.log(SearchRange([2, 4, 6, 7, 7, 7, 8, 8, 9, 34], 7));

@@ -140,10 +140,12 @@ class BinarySearchTree {
 }
 
 const bst = new BinarySearchTree();
+console.log(bst);
 bst.insert(10);
 bst.insert(5);
 bst.insert(15);
 bst.insert(3);
+console.log(bst);
 // bst.insert(7);
 
 console.log(bst.search(bst.root, 10));
