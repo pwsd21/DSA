@@ -29,7 +29,7 @@ console.log(rotateArrayOptimized([1, 2, 3, 4, 5, 6, 7], 3));
 const rotateArray = (arr, k) => {
   let size = arr.length;
 
-  if (size > k) {
+  if (k > size) {
     k = k % size;
   }
 
