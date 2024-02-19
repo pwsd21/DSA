@@ -14,7 +14,7 @@ const secondLargest = (arr) => {
 
 console.log(secondLargest([12, 35, 1, 10, 34, 22]));
 
-// --------------------------------------------------------------------
+// -------------------------------------------------------------------- PREFERED APPROACH
 
 const secondLargestElement = (arr) => {
   if (arr.length < 2) {
@@ -33,7 +33,7 @@ const secondLargestElement = (arr) => {
     if (arr[i] > largest) {
       secondLargest = largest;
       largest = arr[i];
-    } else if (arr[i] > secondLargest && arr[i] !== largest) {
+    } else if (arr[i] > secondLargest && arr[i] < largest) {
       secondLargest = arr[i];
     }
   }
