@@ -10,7 +10,7 @@ const maxSlidingWindow = (arr, k) => {
     let max = arr[i];
     for (let j = 1; j < k; j++) {
       if (arr[i + j] > max) {
-        max = arr[j + i];
+        max = arr[i + j];
       }
     }
     result.push(max);
