@@ -1,3 +1,6 @@
+// known as Circular Buffer or Ring Buffer
+// uses - Streaming Data, traffic lights, clock
+
 class CircularQueue {
   constructor(capacity) {
     this.items = new Array(capacity);
@@ -17,9 +20,9 @@ class CircularQueue {
 
   enqueue(element) {
     if (!this.isFull()) {
-      this.rear = (this.rear + 1) % this.capacity;
-      this.items[this.rear] = element;
-      this.currentLength += 1;
+      this.rear = (this.rear + 1) % this.capacity; // incrementing rear pointer position by 1
+      this.items[this.rear] = element; // add element at rear pointer index
+      this.currentLength += 1; // increment current length value by 1
       if (this.front == -1) {
         this.front = this.rear;
       }

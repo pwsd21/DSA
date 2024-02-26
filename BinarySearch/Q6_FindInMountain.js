@@ -61,4 +61,4 @@ const findInMountainArray = (target, mountainArr) => {
   return -1;
 };
 
-console.log(findInMountainArray(5, [1, 2, 3, 4, 7, 6, 5, 3, 1]));
+console.log(findInMountainArray(3, [1, 2, 3, 4, 7, 6, 5, 3, 1]));

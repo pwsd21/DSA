@@ -13,7 +13,7 @@ const Ceiling = (arr, target) => {
       return mid;
     }
   }
-  return start; // this is main notice point here, rest all is similar to normal binary search
+  return arr[start % arr.length]; // this is main notice point here, rest all is similar to normal binary search
 };
 
 const array = [2, 3, 4, 6, 8, 9, 24, 28, 36];

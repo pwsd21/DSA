@@ -31,6 +31,20 @@ class LinkedList {
     this.size++;
   }
 
+  print() {
+    if (this.isEmpty()) {
+      console.log("List is empty");
+    } else {
+      let current = this.head;
+      let listValues = "";
+      while (current) {
+        listValues += `${current.value} `;
+        current = current.next;
+      }
+      console.log(listValues);
+    }
+  }
+
   // O(n)
   append(value) {
     const node = new Node(value);
@@ -62,6 +76,22 @@ class LinkedList {
       prev.next = node;
     }
     this.size++;
+  }
+
+  // insert using recursion
+  insertRec(value, index) {
+    this.head = this._insertRec(value, index, this.head);
+  }
+
+  _insertRec(value, index, node) {
+    if (index === 0) {
+      const temp = new Node(value, node);
+      this.size++;
+      return temp;
+    }
+
+    node.next = this._insertRec(value, index - 1, node.next);
+    return node;
   }
 
   removeFrom(index) {
@@ -134,20 +164,6 @@ class LinkedList {
     }
     this.head = prev;
   }
-
-  print() {
-    if (this.isEmpty()) {
-      console.log("List is empty");
-    } else {
-      let current = this.head;
-      let listValues = "";
-      while (current) {
-        listValues += `${current.value} `;
-        current = current.next;
-      }
-      console.log(listValues);
-    }
-  }
 }
 
 const list = new LinkedList();
@@ -171,6 +187,8 @@ list.print();
 list.removeFrom(3);
 list.print();
 console.log(list.search(40));
+
+list.insertRec(400, 3);
 
 list.reverse();
 list.print();

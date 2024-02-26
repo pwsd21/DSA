@@ -1,11 +1,13 @@
 // https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
 
+// LATEST CODE
+
 const search = (arr, target) => {
   let start = 0;
   let end = arr.length - 1;
 
   while (start <= end) {
-    let mid = start + Math.floor((end - start) / 2);
+    const mid = start + Math.floor((end - start) / 2);
 
     if (target === arr[mid]) {
       return mid;
@@ -18,13 +20,15 @@ const search = (arr, target) => {
       continue;
     }
 
+    // Right half is sorted
     if (arr[mid] <= arr[end]) {
       if (target > arr[mid] && target <= arr[end]) {
         start = mid + 1;
       } else {
         end = mid - 1;
       }
-    } else {
+    } // left half sorted
+    else {
       if (target >= arr[start] && target < arr[mid]) {
         end = mid - 1;
       } else {
@@ -32,6 +36,8 @@ const search = (arr, target) => {
       }
     }
   }
+
+  return false;
 };
 
-console.log(search([4, 5, 6, 7, 0, 1, 2], 4));
+console.log(search([4, 5, 6, 7, 0, 1, 2], 7));

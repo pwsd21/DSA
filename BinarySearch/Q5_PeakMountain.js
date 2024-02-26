@@ -11,7 +11,7 @@ const PeakMountain = (arr) => {
       start = mid + 1;
     }
   }
-  return start;
+  return start; // can return either start or end
 };
 
 console.log(PeakMountain([1, 2, 4, 5, 7, 99, 6, 3, 2]));

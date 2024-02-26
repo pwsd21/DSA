@@ -24,4 +24,4 @@ const minimum = (arr) => {
   return ans;
 };
 
-console.log(minimum([3, 4, 5, 0, 1, 2]));
+console.log(minimum([6, -8, 1, 2, 3, 4, 5]));

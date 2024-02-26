@@ -8,7 +8,7 @@ class Queue {
   }
 
   enqueue(element) {
-    this.items[this.rear] = element;
+    this.items[this.rear] = element; // this.rear -> key , element -> value
     this.rear++;
   }
 
@@ -36,7 +36,7 @@ class Queue {
   }
 }
 
-const queue = new Queue();
+const queue = new Queue(); // new instance
 console.log(queue, "queeee");
 console.log(queue.isEmpty());
 queue.enqueue(10);
