@@ -1,26 +1,27 @@
 // Ignore elements that are -ve or greater than N
-const firstMissingPositive = (nums) => {
+const firstMissingPositive = (arr) => {
   let i = 0;
-  while (i < nums.length) {
-    let correct = nums[i] - 1;
-    if (nums[i] != nums[correct] && nums[i] > 0 && nums[i] <= nums.length) {
-      swap(nums, i, correct);
+  while (i < arr.length) {
+    let correct = arr[i] - 1;
+    if (arr[i] != arr[correct] && arr[i] > 0 && arr[i] <= arr.length) {
+      swap(arr, i, correct);
     } else {
       i++;
     }
   }
-  for (let i = 0; i <= nums.length; i++) {
-    if (nums[i] != i + 1) {
+  console.log(arr, "arr");
+  for (let i = 0; i <= arr.length; i++) {
+    if (arr[i] != i + 1) {
       return i + 1;
     }
   }
-  return nums.length + 1;
+  return arr.length + 1;
 };
 
-const swap = (nums, first, second) => {
-  let temp = nums[first];
-  nums[first] = nums[second];
-  nums[second] = temp;
+const swap = (arr, first, second) => {
+  let temp = arr[first];
+  arr[first] = arr[second];
+  arr[second] = temp;
 };
 
 console.log(firstMissingPositive([3, 4, -1, 1]));

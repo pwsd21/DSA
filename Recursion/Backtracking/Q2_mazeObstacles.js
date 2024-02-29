@@ -3,6 +3,7 @@ const mazeObstacles = (p, maze, r, c) => {
     console.log(p);
   }
 
+  // stop recursive call on obstacle
   if (!maze[r][c]) {
     return;
   }

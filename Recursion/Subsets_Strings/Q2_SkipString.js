@@ -6,7 +6,7 @@ const skip = (up) => {
   let ch = up.charAt(0);
 
   if (up.startsWith("apple")) {
-    return skip(up.substring("apple".length));
+    return skip(up.substring(5));
   } else {
     return ch + skip(up.substring(1));
   }

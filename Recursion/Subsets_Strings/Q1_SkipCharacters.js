@@ -18,6 +18,7 @@ const skip = (p, up) => {
 skip("", "baccdaha");
 
 // Alternate way , without using empty string in argument
+// creating variables during recursion calls
 
 const SkipChar = (up) => {
   if (up == "") {

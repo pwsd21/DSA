@@ -1,3 +1,4 @@
+// Subsequence
 const subSeq = (p, up) => {
   if (up === "") {
     console.log(p);
@@ -10,9 +11,9 @@ const subSeq = (p, up) => {
 
 subSeq("", "abc");
 
-// Print in Array
+// Print in Array - Subset
 
-const subSeqRet = (p, up) => {
+const subSet = (p, up) => {
   if (up === "") {
     let finalArr = [];
     finalArr.push(p);
@@ -20,9 +21,9 @@ const subSeqRet = (p, up) => {
   }
 
   let ch = up.charAt(0);
-  let left = subSeqRet(p + ch, up.substring(1));
-  let right = subSeqRet(p, up.substring(1));
+  let left = subSet(p + ch, up.substring(1));
+  let right = subSet(p, up.substring(1));
   return [...left, ...right];
 };
 
-console.log(subSeqRet("", "abc"));
+console.log(subSet("", "abc"));

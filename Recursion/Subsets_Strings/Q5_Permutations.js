@@ -1,17 +1,12 @@
 const Permutations = (p, up) => {
   if (up === "") {
-    console.log("final value of p", p);
+    console.log(p);
     return;
   }
   let ch = up.charAt(0);
   for (let i = 0; i <= p.length; i++) {
-    console.log(i, p, "/", up);
-    console.log(ch, "value of ch");
     let f = p.substring(0, i);
-    console.log(f, "Value of F");
     let s = p.substring(i, p.length);
-    console.log(s, "value of S");
-    console.log("----------------------------------------------");
     Permutations(f + ch + s, up.substring(1));
   }
 };
@@ -21,8 +16,7 @@ console.log(ans);
 
 // returning in array list
 const PermutationsArray = (p, up) => {
-  const result = [];
-
+  let result = [];
   if (up === "") {
     result.push(p);
     return result;
