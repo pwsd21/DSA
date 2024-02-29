@@ -19,3 +19,34 @@ const maxSlidingWindow = (arr, k) => {
 };
 
 console.log(maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3));
+
+// Optimized Way
+
+const maxSlidingWindowValue = (arr, k) => {
+  const result = [];
+  const deque = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    // Remove elements outside the current window from the front of the deque
+    while (deque.length > 0 && deque[0] < i - k + 1) {
+      deque.shift();
+    }
+
+    // Remove elements smaller than the current element from the back of the deque
+    while (deque.length > 0 && arr[i] > arr[deque[deque.length - 1]]) {
+      deque.pop();
+    }
+
+    // Add the current element's index to the deque
+    deque.push(i);
+
+    // Add maximum element for the current window to the result
+    if (i >= k - 1) {
+      result.push(arr[deque[0]]);
+    }
+  }
+
+  return result;
+};
+
+console.log(maxSlidingWindowValue([1, 3, -1, -3, 5, 3, 6, 7], 3));
