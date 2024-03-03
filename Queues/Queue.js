@@ -7,23 +7,29 @@ class Queue {
     this.front = 0;
   }
 
-  enqueue(element) {
-    this.items[this.rear] = element; // this.rear -> key , element -> value
+  isEmpty() {
+    return this.front === this.rear;
+  }
+
+  enqueue(value) {
+    this.items[this.rear] = value;
     this.rear++;
   }
 
   dequeue() {
-    const item = this.items[this.front];
+    if (this.isEmpty()) {
+      return null;
+    }
+    let item = this.items[this.front];
     delete this.items[this.front];
     this.front++;
     return item;
   }
 
-  isEmpty() {
-    return this.rear - this.front === 0;
-  }
-
   peek() {
+    if (this.isEmpty()) {
+      return null;
+    }
     return this.items[this.front];
   }
 
@@ -93,3 +99,35 @@ console.log(queue);
 // queue.print();
 // queue.dequeue();
 // queue.print();
+
+class Queuee {
+  constructor() {
+    this.items = [];
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+
+  enqueue(element) {
+    this.items.push(element);
+  }
+
+  dequeue() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.items.shift();
+  }
+
+  peek() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.items[0];
+  }
+
+  print() {
+    console.log(this.items);
+  }
+}

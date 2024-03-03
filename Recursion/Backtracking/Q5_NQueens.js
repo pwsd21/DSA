@@ -34,6 +34,7 @@ const solveNQueens = (n) => {
   };
 
   const initialBoard = Array.from({ length: n }, () => Array(n).fill("."));
+  console.log(initialBoard);
   solve(0, initialBoard);
 
   return ans;
