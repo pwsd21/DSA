@@ -6,24 +6,13 @@ class Node {
   }
 }
 
-class BinarySearchTree {
+class AVL {
   constructor() {
     this.root = null;
   }
 
   isEmpty() {
     return this.root === null;
-  }
-
-  height(node = this.root) {
-    if (!node) {
-      return -1;
-    }
-
-    const leftHeight = this.height(node.left);
-    const rightHeight = this.height(node.right);
-
-    return Math.max(leftHeight, rightHeight) + 1;
   }
 
   insert(value) {
@@ -51,20 +40,16 @@ class BinarySearchTree {
     }
   }
 
-  search(value) {
-    return this.searchValue(this.root, value);
-  }
-
-  searchValue(root, value) {
+  search(root, value) {
     if (!root) {
       return false;
     } else {
       if (root.value === value) {
         return true;
       } else if (value < root.value) {
-        return this.searchValue(root.left, value);
+        return this.search(root.left, value);
       } else {
-        return this.searchValue(root.right, value);
+        return this.search(root.right, value);
       }
     }
   }
@@ -154,30 +139,29 @@ class BinarySearchTree {
   }
 }
 
-const bst = new BinarySearchTree();
-console.log(bst, "new initialized tree");
+const bst = new AVL();
+console.log(bst);
 bst.insert(10);
 bst.insert(5);
 bst.insert(15);
 bst.insert(3);
-bst.insert(7);
+console.log(bst);
+// bst.insert(7);
 
-console.log(bst, "after inserting 4 elements");
-
-// console.log(bst.search(10), "searching an element");
-console.log(bst.search(3), "searching an element");
+console.log(bst.search(bst.root, 10));
 
 bst.preOrder(bst.root);
-console.log("-----------------preorderrrrrr");
+console.log("-----------------");
 bst.inOrder(bst.root);
-console.log("-----------------inorderrrr");
+console.log("-----------------");
 bst.postOrder(bst.root);
-console.log("-----------------postorder");
+console.log("-----------------");
 bst.levelOrder();
-console.log("-----------------levelorder");
+console.log("-----------------");
 console.log(bst.min(bst.root));
 console.log(bst.max(bst.root));
 
-// bst.delete(15);
-console.log(bst, "after delition");
-console.log(bst.height());
+// bst.levelOrder();
+// bst.delete(10);
+// console.log("-----------------");
+// bst.levelOrder();
