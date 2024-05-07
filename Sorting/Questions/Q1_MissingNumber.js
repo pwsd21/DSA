@@ -23,7 +23,7 @@ const swap = (arr, first, second) => {
   arr[second] = temp;
 };
 
-console.log(missingNumber([8, 6, 4, 2, 3, 5, 7, 0, 1]));
+console.log(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]));
 
 // Alternate
 

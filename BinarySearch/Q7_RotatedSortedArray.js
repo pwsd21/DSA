@@ -27,4 +27,4 @@ const search = (nums, target) => {
     }
   }
 };
-console.log(search([4, 5, 6, 7, 0, 1, 2], 4)); // Should return 4
+console.log(search([4, 5, 6, 7, 0, 1, 2], 0)); // Should return 4
