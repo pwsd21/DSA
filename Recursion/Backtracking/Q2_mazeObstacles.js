@@ -23,7 +23,7 @@ const board = [
   [true, true, true],
 ];
 
-// console.log(mazeObstacles("", board, 0, 0));
+console.log(mazeObstacles("", board, 0, 0));
 
 // Alternate with arraylist and values without undefined
 const mazeRestrictions = (p, maze, r, c) => {

@@ -33,11 +33,7 @@ class TreeNode {
 }
 
 class Solution {
-  // Function to perform iterative Morris
-  // inorder traversal of a binary tree
   getInorder(root) {
-    // Array to store the
-    // inorder traversal result
     const inorder = [];
     // Pointer to the current node,
     // starting from the root
