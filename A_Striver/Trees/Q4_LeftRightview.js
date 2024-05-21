@@ -18,78 +18,36 @@ class Node {
 }
 
 class Solution {
-  // Function to return the
-  // Right view of the binary tree
   rightsideView(root) {
-    // Array to store the result
     const res = [];
-
-    // Call the recursive function
-    // to populate the right-side view
     this.recursionRight(root, 0, res);
-
     return res;
   }
 
-  // Function to return the
-  // Left view of the binary tree
   leftsideView(root) {
-    // Array to store the result
     const res = [];
-
-    // Call the recursive function
-    // to populate the left-side view
     this.recursionLeft(root, 0, res);
-
     return res;
   }
 
-  // Recursive function to traverse the
-  // binary tree and populate the left-side view
   recursionLeft(root, level, res) {
-    // Check if the current node is null
     if (!root) {
       return;
     }
-
-    // Check if the size of the result array
-    // is equal to the current level
     if (res.length === level) {
-      // If equal, add the value of the
-      // current node to the result array
       res.push(root.data);
     }
-
-    // Recursively call the function for the
-    // left child with an increased level
     this.recursionLeft(root.left, level + 1, res);
-
-    // Recursively call the function for the
-    // right child with an increased level
     this.recursionLeft(root.right, level + 1, res);
   }
 
-  // Recursive function to traverse the
-  // binary tree and populate the right-side view
   recursionRight(root, level, res) {
-    // Check if the current node is null
     if (!root) {
       return;
     }
-
-    // Check if the size of the result array
-    // is equal to the current level
     if (res.length === level) {
-      // If equal, add the value of the
-      // current node to the result array
       res.push(root.data);
-
-      // Recursively call the function for the
-      // right child with an increased level
       this.recursionRight(root.right, level + 1, res);
-
-      // Recursively call the function for the
-      // left child with an increased level
       this.recursionRight(root.left, level + 1, res);
     }
   }

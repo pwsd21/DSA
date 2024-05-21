@@ -1,4 +1,4 @@
-// BEST APPROACH USING HASHMAP
+// BEST APPROACH USING MAP
 
 function twoSumm(nums, target) {
   const numIndices = new Map();
