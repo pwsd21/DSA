@@ -1,47 +1,46 @@
 class Stack {
   constructor() {
     this.items = [];
-    this.maxValue = Number.MAX_SAFE_INTEGER;
-    this.minValue = Number.NEGATIVE_INFINITY;
   }
 
   isEmpty() {
     return this.items.length === 0;
   }
 
-  add(element) {
-    return this.items.unshift(element);
+  size() {
+    return this.items.length;
+  }
+
+  add(value) {
+    this.items.push(value);
   }
 
   remove() {
     if (this.isEmpty()) {
-      return null;
+      return "Empty Stack";
     }
-    return this.items.shift();
-  }
-
-  peek() {
-    return this.items[0];
+    this.items.pop();
   }
 
   print() {
-    console.log(this.items);
+    console.log(this.items.toString());
   }
 
-  min() {
-    return this.isEmpty() ? null : this.minValue;
+  peak() {
+    return this.items[this.items.length - 1];
   }
 
-  max() {
-    return this.isEmpty() ? null : this.maxValue;
-  }
-
-  updateMinMax() {
-    this.minValue = !this.isEmpty()
-      ? Math.min(...this.items)
-      : Number.NEGATIVE_INFINITY;
-    this.maxValue = !this.isEmpty()
-      ? Math.max(...this.items)
-      : Number.MAX_SAFE_INTEGER;
+  clear() {
+    this.items = [];
   }
 }
+
+const stack = new Stack();
+stack.add(10);
+stack.add(20);
+stack.add(30);
+stack.remove();
+
+console.log(stack);
+console.log(stack.peak());
+stack.print();
