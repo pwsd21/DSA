@@ -16,6 +16,24 @@ const nestedArray = [1, [2, [3, 4], 5], 6, [7, 8]];
 const flattenedArray = flattenArray(nestedArray);
 console.log(flattenedArray);
 
+function flattenObject(obj, parentKey = "") {
+  let flattened = {};
+
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      const newKey = parentKey ? `${parentKey}.${key}` : key;
+
+      if (typeof obj[key] === "object" && obj[key] !== null) {
+        Object.assign(flattened, flattenObject(obj[key], newKey));
+      } else {
+        flattened[newKey] = obj[key];
+      }
+    }
+  }
+
+  return flattened;
+}
+
 // Flatten Deeply Nested Array
 
 const customFlat = (arr, depth = 1) => {
