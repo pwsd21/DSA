@@ -17,6 +17,6 @@ const Ceiling = (arr, target) => {
 };
 
 const array = [2, 3, 4, 6, 8, 9, 24, 28, 36];
-const target = 16;
+const target = 46;
 
 console.log(Ceiling(array, target));

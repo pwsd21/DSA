@@ -9,7 +9,7 @@ const mazeCount = (r, c) => {
   return left + right;
 };
 
-console.log(mazeCount(3, 7));
+console.log(mazeCount(3, 3));
 
 // Path
 
