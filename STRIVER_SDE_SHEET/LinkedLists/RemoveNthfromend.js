@@ -1,23 +1,30 @@
-// Function to remove the nth node from the end of a linked list
-const removeNthFromEnd = function (head, n) {
-  // Create a dummy node with value 0 and set its next pointer to the head of the original list
-  let res = new ListNode(0, head);
-  let dummy = res;
+const removeNth = (head, n) => {
+  let fast = head;
 
-  // Move the head pointer n steps forward
+  // Move fast pointer n steps ahead
   for (let i = 0; i < n; i++) {
-    head = head.next;
+    if (!fast) {
+      // If n is greater than the length of the list, return the original head
+      return head;
+    }
+    fast = fast.next;
   }
 
-  // Move both the head and dummy pointers until the head reaches the end of the list
-  while (head) {
-    head = head.next;
-    dummy = dummy.next;
+  // If fast is null after the initial movement, it means we need to remove the head node
+  if (!fast) {
+    return head.next;
   }
 
-  // Remove the nth node from the end by updating the next pointer of the node before it
-  dummy.next = dummy.next.next;
+  let slow = head;
 
-  // Return the head of the modified list (excluding the dummy node)
-  return res.next;
+  // Move both fast and slow pointers until fast reaches the end of the list
+  while (fast.next) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+
+  // Skip the N-th node from the end
+  slow.next = slow.next.next;
+
+  return head;
 };

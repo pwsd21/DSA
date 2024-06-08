@@ -11,4 +11,18 @@ const isPrime = (n) => {
   return true;
 };
 
-console.log(isPrime(10));
+// code to find n primes
+
+const primes = (n) => {
+  let prime = [];
+  let num = 2;
+  while (prime.length < n) {
+    if (isPrime(num)) {
+      prime.push(num);
+    }
+    num++;
+  }
+  return prime;
+};
+
+console.log(primes(10));
